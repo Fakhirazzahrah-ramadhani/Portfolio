@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather ETL &amp; Forecasting Platform — Fakhirazzahrah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">← Back to Home</a>
+    <h1>Weather ETL &amp; Forecasting Platform</h1>
+    <span class="role-badge">Role: Data Engineer (End-to-End)</span>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-block">
+      <img class="detail-photo" src="documentation/page2Weather.png" alt="Dashboard Weather ETL & Forecasting Platform">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">Data Engineering</span>
+      <span class="tag-badge">ETL Pipeline</span>
+      <span class="tag-badge">Machine Learning</span>
+      <span class="tag-badge">FastAPI</span>
+      <span class="tag-badge">PostgreSQL</span>
+      <span class="tag-badge">React</span>
+    </div>
+
+    <div class="detail-block">
+      <h2>Overview</h2>
+      <p>
+        Proyek data engineering dan machine learning end-to-end yang mengumpulkan data cuaca real-time dari
+        <strong>Open-Meteo API</strong>, memprosesnya melalui pipeline ETL, menyimpannya di
+        <strong>PostgreSQL</strong>, menghasilkan prakiraan suhu menggunakan machine learning, dan
+        memvisualisasikan hasilnya lewat dashboard berbasis <strong>React</strong> yang terhubung ke backend
+        <strong>FastAPI</strong>. Sistem memantau data cuaca dari 8 kota di Indonesia dan menjalankan proses
+        ETL secara otomatis setiap 15 menit.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h2>Tools &amp; Technologies</h2>
+      <div class="tools-grid">
+        <div class="tool-chip"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="tool-chip"><i class="fa-solid fa-table"></i> Pandas</div>
+        <div class="tool-chip"><i class="fa-solid fa-arrows-spin"></i> SQLAlchemy</div>
+        <div class="tool-chip"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+        <div class="tool-chip"><i class="fa-solid fa-bolt"></i> FastAPI &amp; Uvicorn</div>
+        <div class="tool-chip"><i class="fa-solid fa-brain"></i> Scikit-learn</div>
+        <div class="tool-chip"><i class="fa-solid fa-clock"></i> APScheduler</div>
+        <div class="tool-chip"><i class="fa-brands fa-react"></i> React &amp; TypeScript</div>
+        <div class="tool-chip"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</div>
+        <div class="tool-chip"><i class="fa-solid fa-cloud-sun"></i> Open-Meteo API</div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>The Problem &amp; The Solution</h2>
+      <div class="problem-solution">
+        <div class="ps-card problem">
+          <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h3>The Problem</h3>
+          <p>
+            Data cuaca real-time tersebar di berbagai sumber dan tidak otomatis tersimpan dalam bentuk yang
+            siap dianalisis, sehingga sulit digunakan untuk memantau kondisi cuaca beberapa kota sekaligus
+            maupun untuk membangun prediksi suhu ke depan secara konsisten.
+          </p>
+        </div>
+        <div class="ps-card solution">
+          <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>The Solution</h3>
+          <p>
+            Membangun pipeline ETL otomatis yang mengekstrak data dari Open-Meteo API, mentransformasikannya
+            dengan Pandas, dan memuatnya ke PostgreSQL secara terjadwal. Data historis tersebut kemudian
+            digunakan untuk melatih model machine learning yang memprediksi suhu, dan hasilnya disajikan
+            lewat REST API serta dashboard React yang interaktif.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Alur Sistem</h2>
+      <ul>
+        <li><strong>Extract</strong> — mengambil data cuaca real-time dari Open-Meteo API untuk 8 kota di Indonesia (suhu, kelembapan, curah hujan, kecepatan angin, dan variabel lainnya).</li>
+        <li><strong>Transform</strong> — menstrukturkan dan memetakan data mentah menggunakan Pandas agar sesuai skema database.</li>
+        <li><strong>Load</strong> — menyimpan data ke tabel <code>weather_data</code> di PostgreSQL dengan unique constraint pada kota dan timestamp untuk mencegah duplikasi.</li>
+        <li><strong>Scheduling</strong> — seluruh proses ETL dijalankan otomatis setiap 15 menit menggunakan APScheduler.</li>
+        <li><strong>Forecasting</strong> — data historis digunakan untuk melatih model prediksi suhu, dengan hasil disimpan di tabel <code>weather_forecast</code>.</li>
+        <li><strong>Serve &amp; Visualize</strong> — data dan hasil prediksi diakses melalui REST API (FastAPI) dan ditampilkan pada dashboard React.</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <h4>Automated ETL Scheduler</h4>
+          <p>Pipeline ETL berjalan otomatis setiap 15 menit tanpa intervensi manual menggunakan APScheduler.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-chart-line"></i>
+          <h4>Temperature Forecasting</h4>
+          <p>Prakiraan suhu dihasilkan menggunakan model machine learning yang dilatih dari data historis.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-magnifying-glass-location"></i>
+          <h4>Multi-City Monitoring</h4>
+          <p>Memantau kondisi cuaca real-time dari 8 kota di Indonesia sekaligus, lengkap dengan fitur pencarian kota.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-plug"></i>
+          <h4>REST API dengan FastAPI</h4>
+          <p>Endpoint untuk data cuaca terkini, pencarian kota, dan hasil prakiraan, lengkap dengan dokumentasi otomatis.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-display"></i>
+          <h4>React Weather Dashboard</h4>
+          <p>Visualisasi data cuaca dan hasil prediksi secara real-time melalui antarmuka berbasis React.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Duplicate-Safe Storage</h4>
+          <p>Unique constraint pada kota dan timestamp memastikan data cuaca tersimpan tanpa duplikasi.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Key Impact</h2>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-number">8</span>
+          <span class="impact-label">Kota di Indonesia dipantau real-time</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">15 min</span>
+          <span class="impact-label">Interval ETL otomatis</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">2</span>
+          <span class="impact-label">Model ML dievaluasi (Linear Regression &amp; Random Forest)</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">9</span>
+          <span class="impact-label">Variabel cuaca diekstraksi per kota</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Model Evaluation</h2>
+      <p>
+        Dua model machine learning dievaluasi untuk prakiraan suhu, yaitu <strong>Linear Regression</strong>
+        dan <strong>Random Forest</strong>. Berdasarkan hasil evaluasi, <strong>Linear Regression</strong>
+        dipilih sebagai model utama pada implementasi forecasting saat ini karena memberikan performa
+        terbaik untuk kasus penggunaan proyek ini.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h2>Project Gallery</h2>
+      <div class="gallery-grid">
+       <img src="documentation/DashboardWeather.png" alt="DashboardWeather ">
+       <img src="documentation/searchWeather.png" alt="searchWeather ">
+       <img src="documentation/page3Weather.png" alt="DashboardWeather1 ">
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Tech Stack</h2>
+      <div class="stack stack-box">
+        <span>Python</span>·<span>Pandas</span>·<span>SQLAlchemy</span>·<span>PostgreSQL</span>·<span>FastAPI</span>·<span>Scikit-learn</span>·<span>APScheduler</span>·<span>React</span>·<span>TypeScript</span>·<span>Tailwind CSS</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>

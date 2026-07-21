@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fakhirazzahrah Ramadhani — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="#home">Fakhira's Pages</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="home">
+  <div class="container hero-flex">
+    <div class="hero-text">
+      <div class="eyebrow">HELLO I'M</div>
+      <h1>Fakhirazzahrah Ramadhani</h1>
+      <p class="role-line">Fresh Graduate Informatics Engineering from Hasanuddin University. Focused on data engineering and pipeline development, with hands-on experience across cloud computing, AI, and front-end systems."</p>
+      <div class="hero-links">
+        <a class="btn btn-solid" href="documentation/CV.pdf" download>Curriculum Vitae</a>
+        <a class="btn btn-outline" href="documentation/ijazah.pdf" download>Bachelor's Degree Certificate</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="documentation/profile.jpeg" alt="Fakhirazzahrah Ramadhani Profile Photo">
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="container reveal">
+    <div class="section-label">MY Portfolio</div>
+    <h2>Featured Projects</h2>
+
+    <div class="project-grid">
+      
+
+      <div class="project-card">
+
+      <div class="detail-block">
+       <img class="detail-photo" src="documentation/page2Weather.png" alt="Dashboard Weather ETL & Forecasting Platform">
+      </div>
+        <span class="role-badge">Data Engineer (End-to-End)</span>
+        <h3>Weather ETL &amp; Forecasting Platform</h3>
+        <p>
+          Projects data engineering dan machine learning end-to-end: mengumpulkan data cuaca real-time,
+          memprosesnya lewat pipeline ETL, menyimpan di PostgreSQL, menghasilkan prakiraan suhu dengan
+          machine learning, dan memvisualisasikannya lewat dashboard React.
+        </p>
+        <div class="stack">
+          <span>Python</span>·<span>ETL</span>·<span>PostgreSQL</span>·<span>ML</span>·<span>React</span>
+        </div>
+        <a class="card-link" href="project-weather.html">View Details →</a>
+      </div>
+
+      <div class="project-card">
+
+        <div class="detail-block">
+      <img class="detail-photo" src="documentation/perbandingan terbaik fid.png" alt="Visualisasi hasil sintesis citra burung model FastGAN">
+       </div>
+
+        <span class="role-badge">AI / Thesis</span>
+        <h3>Generative AI for Ornithology: FastGAN-Based Image Synthesis</h3>
+        <p>
+          Model generative AI berbasis arsitektur FastGAN untuk mensintesis gambar burung beresolusi
+          tinggi, dioptimalkan untuk dataset terbatas dengan hinge-loss dan skip-connection.
+        </p>
+        <div class="stack">
+          <span>FastGAN</span>·<span>Deep Learning</span>·<span>Image Synthesis</span>
+        </div>
+        <a class="card-link" href="project-fastgan.html">View Details →</a>
+      </div>
+
+      <div class="project-card">
+
+        <div class="detail-hero-image">
+      <img src="documentation/skinscan-banner.jpeg" alt="SkinScan Project Presentation">
+        </div>
+        <span class="role-badge">Backend &amp; Cloud Developer</span>
+        <h3>SkinScan: AI-Powered Skin Cancer Detection</h3>
+        <p>
+          Aplikasi mobile deteksi kanker kulit berbasis AI. Men-deploy layanan di Google App Engine, serta
+          menangani integrasi basis data dan autentikasi dalam tim cloud 2 orang.
+        </p>
+        <div class="stack">
+          <span>Google App Engine</span>·<span>Cloud</span>·<span>Auth</span>
+        </div>
+        <a class="card-link" href="project-skinscan.html">View Details →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="detail-block">
+          <img class="detail-photo" src="documentation/Arina_Dash_Admin.png" alt="Dashboard admin Ticketing System PT Telkom Akses">
+        </div>
+        <span class="role-badge">Front End Developer</span>
+        <h3>Ticketing System — PT Telkom Akses</h3>
+        <p>
+          Platform ticketing berbasis Laravel yang dikembangkan selama masa magang bersama tim, dengan
+          fokus pengerjaan pada sisi Front End aplikasi.
+        </p>
+        <div class="stack">
+          <span>Laravel</span>·<span>Front End</span>
+        </div>
+        <a class="card-link" href="project-ticketing.html">View Details →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container reveal">
+    <div class="section-label">TECH STACK</div>
+    <h2>Technologies I Work With</h2>
+
+    <div class="skills-grid" style="margin-top:36px;">
+      <div class="skill-category">
+        <h3>Data &amp; Backend</h3>
+        <ul class="skills-icon-list">
+          <li><i class="fa-brands fa-python"></i> Python &amp; Pandas</li>
+          <li><i class="fa-solid fa-database"></i> SQL &amp; PostgreSQL</li>
+          <li><i class="fa-solid fa-arrows-spin"></i> ETL Pipeline Development</li>
+          <li><i class="fa-solid fa-bolt"></i> FastAPI</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Cloud</h3>
+        <ul class="skills-icon-list">
+          <li><i class="fa-brands fa-google"></i> Google App Engine</li>
+          <li><i class="fa-solid fa-cloud"></i> Cloud Computing (Bangkit Academy)</li>
+          <li><i class="fa-solid fa-lock"></i> Database Integration &amp; Auth</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Front End</h3>
+        <ul class="skills-icon-list">
+          <li><i class="fa-brands fa-react"></i> React (Dashboard Development)</li>
+          <li><i class="fa-brands fa-laravel"></i> Laravel</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Machine Learning</h3>
+        <ul class="skills-icon-list">
+          <li><i class="fa-solid fa-chart-line"></i> Predictive Modeling</li>
+          <li><i class="fa-solid fa-robot"></i> Generative AI (GAN)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="container reveal">
+    <div class="section-label">Achievements</div>
+    <h2>Certifications &amp; Awards</h2>
+
+    <div class="cert-grid">
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-ml-google-cloud.png" alt="Sertifikat Belajar Penerapan Machine Learning dengan Google Cloud">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/N9ZOMO8RRPG5" target="_blank">Belajar Penerapan Machine Learning dengan Google Cloud</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: May 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-dasar-ai.png" alt="Sertifikat Belajar Dasar AI">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/JLX17WO1JX72" target="_blank">Belajar Dasar AI</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: May 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-google-cloud-engineer.png" alt="Sertifikat Menjadi Google Cloud Engineer">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/QLZ97RRLMP5D" target="_blank">Menjadi Google Cloud Engineer</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: May 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-dasar-pemrograman-web.png" alt="Sertifikat Belajar Dasar Pemrograman Web">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/GRX5QRR7KZ0M" target="_blank">Belajar Dasar Pemrograman Web</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: March 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-dasar-pemrograman-javascript.png" alt="Sertifikat Belajar Dasar Pemrograman JavaScript">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/GRX5OL4EYP0M" target="_blank">Belajar Dasar Pemrograman JavaScript</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-backend-google-cloud.png" alt="Sertifikat Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/53XEONE4RZRN" target="_blank">Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: May 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/dicoding-dasar-pemrograman-software.png" alt="Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software">
+        <div class="cert-body">
+          <h3><a href="https://www.dicoding.com/certificates/1RXY1VO43PVM" target="_blank">Memulai Dasar Pemrograman untuk Menjadi Pengembang Software</a></h3>
+          <div class="cert-org">Dicoding Indonesia</div>
+          <div class="cert-date">Issued: Feb 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-network-skill-badge.png" alt="Sertifikat Develop Your Google Cloud Network Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/4d8023ac-948b-4baf-9a79-beb0cff07dbd" target="_blank">Develop Your Google Cloud Network Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-prepare-data-ml-apis.png" alt="Sertifikat Prepare Data for ML APIs on Google Cloud Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/9755dcd1-adce-4348-beda-0f2ae89e83ae" target="_blank">Prepare Data for ML APIs on Google Cloud Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-terraform-skill-badge.png" alt="Sertifikat Build Infrastructure with Terraform on Google Cloud Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/707f5e62-0288-40de-a230-e58309cce42d" target="_blank">Build Infrastructure with Terraform on Google Cloud Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-load-balancing-skill-badge.png" alt="Sertifikat Implement Load Balancing on Compute Engine Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/8b32d4ef-40f2-4870-b6e3-5fbc802cc076" target="_blank">Implement Load Balancing on Compute Engine Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-secure-network-skill-badge.png" alt="Sertifikat Build a Secure Google Cloud Network Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/c6ae6c3e-9591-46be-86c6-b30e14b7d0eb" target="_blank">Build a Secure Google Cloud Network Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-appdev-environment-skill-badge.png" alt="Sertifikat Set up an App Dev Environment on Google Cloud Skill Badge">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/12dd2eb9-6d5b-4c8c-9635-d1cff499ed4c/linked_in_profile" target="_blank">Set Up an App Dev Environment on Google Cloud Skill Badge</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/google-cloud-foundations-certificate.png" alt="Sertifikat Google Cloud Computing Foundations Certificate">
+        <div class="cert-body">
+          <h3><a href="https://www.credly.com/badges/dadd257e-5b6f-445a-8b5c-8f8a26253f33/linked_in_profile" target="_blank">Google Cloud Computing Foundations Certificate</a></h3>
+          <div class="cert-org">Google</div>
+          <div class="cert-date">Issued: April 2024</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <h2>Faza's Devs</h2>
+    <p>Let's connect — reach out through any of these</p>
+    <div class="contact-links">
+      <a href="mailto:fzzahrahh@gmail.com" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/fakhirazzahrahramadhani" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/Fakhirazzahrah-ramadhani" target="_blank" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button -->
+<a class="wa-float" href="https://wa.me/6282114922953" target="_blank" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  // Scroll-reveal: fade + slide up when section enters viewport
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

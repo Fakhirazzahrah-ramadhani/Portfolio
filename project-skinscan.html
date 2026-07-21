@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkinScan: AI-Powered Skin Disease Detection — Fakhirazzahrah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">← Back to Home</a>
+    <h1>SkinScan: AI-Powered Skin Disease Detection</h1>
+    <span class="role-badge">Role: Backend & Cloud Developer</span>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-hero-image">
+      <img src="documentation/skinscan-banner.jpeg" alt="Dokumentasi presentasi proyek SkinScan">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">Bangkit Academy Capstone</span>
+      <span class="tag-badge">GCP</span>
+      <span class="tag-badge">Cloud Run</span>
+      <span class="tag-badge">Docker</span>
+      <span class="tag-badge">Cloud Storage</span>
+      <span class="tag-badge">Firestore</span>
+    </div>
+
+    
+
+    <div class="detail-grid">
+
+      <!-- ===== MAIN COLUMN ===== -->
+      <div class="detail-main">
+
+        <div class="detail-block">
+          <h2>Overview</h2>
+          <p>
+            Sebagai bagian dari Cloud Computing Cohort di Bangkit Academy, saya memimpin pengembangan
+            infrastruktur backend untuk SkinScan — sebuah aplikasi Android yang memanfaatkan Machine
+            Learning untuk mengidentifikasi berbagai jenis penyakit kulit. Peran utama saya adalah
+            menjembatani model AI (yang dibangun oleh tim ML) dengan aplikasi mobile (yang dibangun oleh
+            tim Android) melalui API yang scalable dan reliable di Google Cloud.
+          </p>
+        </div>
+
+        <div class="detail-block">
+          <h2>The Problem &amp; The Solution</h2>
+          <div class="problem-solution stacked">
+            <div class="ps-card problem">
+              <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <h3>The Problem</h3>
+              <p>
+                Aplikasi berbasis AI di bidang kesehatan membutuhkan sumber daya komputasi yang besar untuk
+                menjalankan model inferensi (prediksi). Menjalankan model tersebut langsung di perangkat
+                pengguna (on-device) akan membuat aplikasi menjadi lambat dan menguras baterai. Selain itu,
+                backend juga harus mampu menangani lonjakan trafik pengguna secara tiba-tiba tanpa mengalami
+                downtime.
+              </p>
+            </div>
+            <div class="ps-card solution">
+              <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>The Solution</h3>
+              <p>
+                Merancang arsitektur Serverless Microservices di Google Cloud Platform (GCP). Model ML
+                di-deploy menggunakan Cloud Run (dalam bentuk container) sehingga infrastruktur dapat
+                melakukan auto-scaling — otomatis menambah kapasitas saat trafik tinggi dan mengurangi saat
+                trafik rendah. Saya juga membangun RESTful API sebagai gerbang komunikasi, menggunakan Cloud
+                Storage untuk menyimpan gambar pengguna, serta Firestore sebagai basis data metadata.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Project Gallery</h2>
+          <div class="gallery-grid">
+            <!-- Ganti src di bawah sesuai nama file foto kamu di folder images/skinscan/ -->
+            <img src="documentation/skinscan1.jpg" alt="Dokumentasi proyek SkinScan 1">
+            <img src="documentation/skinscan2.jpg" alt="Dokumentasi proyek SkinScan 2">
+            <!-- Tambah <img> lagi kalau foto kamu lebih dari 3 -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <div class="detail-sidebar">
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-list-check"></i> Key Features</h3>
+          <ul class="sidebar-feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Serverless Architecture menggunakan Cloud Run</li>
+            <li><i class="fa-solid fa-circle-check"></i> ML Model Deployment &amp; API Serving</li>
+            <li><i class="fa-solid fa-circle-check"></i> Auto-scaling Infrastructure untuk Trafik Tinggi</li>
+            <li><i class="fa-solid fa-circle-check"></i> Secure Image Storage (Cloud Storage Buckets)</li>
+            <li><i class="fa-solid fa-circle-check"></i> RESTful API Integration dengan Aplikasi Mobile</li>
+            <li><i class="fa-solid fa-circle-check"></i> Bangkit Capstone Project (Distinguished Graduate Cohort)</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>

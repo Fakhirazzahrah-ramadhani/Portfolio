@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative AI for Ornithology — Fakhirazzahrah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">← Back to Home</a>
+    <h1>Generative AI for Ornithology: FastGAN-Based Image Synthesis</h1>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-block">
+      <img class="detail-photo" src="documentation/perbandingan terbaik fid.png" alt="Visualisasi hasil sintesis citra burung model FastGAN">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">AI Research</span>
+      <span class="tag-badge">FastGAN</span>
+      <span class="tag-badge">Pytorch</span>
+      <span class="tag-badge">Ornithology</span>
+      <span class="tag-badge">FID/IS</span>
+      <span class="tag-badge">Generative AI</span>
+    </div>
+
+    <div class="detail-block">
+      <h2>Overview</h2>
+      <p>
+        Skripsi ini mengimplementasikan model <strong>FastGAN</strong> — arsitektur Generative Adversarial
+        Network yang ringan dan dirancang khusus untuk sintesis citra dengan data terbatas (few-shot image
+        synthesis) — untuk menghasilkan citra burung sintetis pada domain ornitologi. Penelitian
+        menggunakan dataset <strong>Caltech-UCSD Birds-200-2011 (CUB-200-2011)</strong> yang berisi 11.788
+        citra dari 200 spesies burung. Model dilatih pada empat skenario ukuran dataset (1.000, 2.000,
+        5.000, dan 10.000 citra) hingga 100.000 iterasi dengan resolusi 1024×1024 piksel, kemudian
+        dievaluasi secara kuantitatif menggunakan metrik Fréchet Inception Distance (FID) dan Inception
+        Score (IS), serta secara kualitatif melalui analisis visual terhadap struktur morfologis hasil
+        sintesis.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h2>Tools &amp; Technologies</h2>
+      <div class="tools-grid">
+        <div class="tool-chip"><i class="fa-brands fa-python"></i> Python 3.10</div>
+        <div class="tool-chip"><i class="fa-solid fa-fire"></i> PyTorch 2.0</div>
+        <div class="tool-chip"><i class="fa-solid fa-image"></i> Torchvision</div>
+        <div class="tool-chip"><i class="fa-solid fa-microchip"></i> CUDA 11.8 / 12.9</div>
+        <div class="tool-chip"><i class="fa-solid fa-eye"></i> OpenCV</div>
+        <div class="tool-chip"><i class="fa-solid fa-layer-group"></i> scikit-image</div>
+        <div class="tool-chip"><i class="fa-solid fa-table"></i> NumPy &amp; Pandas</div>
+        <div class="tool-chip"><i class="fa-solid fa-database"></i> LMDB</div>
+        <div class="tool-chip"><i class="fa-solid fa-code"></i> Visual Studio Code</div>
+        <div class="tool-chip"><i class="fa-solid fa-server"></i> NVIDIA RTX 4090</div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>The Problem &amp; The Solution</h2>
+      <div class="problem-solution">
+        <div class="ps-card problem">
+          <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h3>The Problem</h3>
+          <p>
+            GAN konvensional membutuhkan puluhan hingga ratusan ribu citra untuk menghasilkan sintesis
+            berkualitas tinggi, sehingga sulit diterapkan pada domain dengan keterbatasan data seperti
+            ornitologi. Domain biologis juga menuntut ketepatan detail morfologis (fine-grained features)
+            seperti pola bulu dan bentuk paruh — tantangan yang belum banyak dieksplorasi pada model
+            generatif few-shot, apalagi dengan keragaman 200 spesies burung yang berbeda karakteristik
+            visualnya.
+          </p>
+        </div>
+        <div class="ps-card solution">
+          <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>The Solution</h3>
+          <p>
+            Menerapkan arsitektur FastGAN yang mengintegrasikan <strong>Skip-Layer Excitation (SLE)</strong>
+            untuk aliran informasi multi-skala, <strong>self-supervised discriminator</strong> untuk
+            memperkaya representasi fitur tanpa label tambahan, serta <strong>DiffAugment</strong> untuk
+            mencegah overfitting pada dataset kecil. Kombinasi ini memungkinkan model tetap stabil dan
+            efisien dilatih pada dataset CUB-200-2011 dengan ukuran few-shot, sambil mempertahankan
+            keragaman dan realisme hasil sintesis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-diagram-project"></i>
+          <h4>Skip-Layer Excitation</h4>
+          <p>Menghubungkan fitur dari layer resolusi rendah ke resolusi tinggi untuk konsistensi detail visual multi-skala.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Self-Supervised Discriminator</h4>
+          <p>Discriminator belajar merekonstruksi patch citra sebagai tugas tambahan, meningkatkan stabilitas pelatihan.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-shuffle"></i>
+          <h4>DiffAugment</h4>
+          <p>Augmentasi color &amp; translation diterapkan langsung dalam pelatihan untuk mencegah overfitting pada data terbatas.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-layer-group"></i>
+          <h4>Multi-Scenario Training</h4>
+          <p>Empat skenario dataset (1k, 2k, 5k, 10k citra) untuk menganalisis pengaruh ukuran data terhadap kualitas sintesis.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-ruler-combined"></i>
+          <h4>Evaluasi FID &amp; IS</h4>
+          <p>Penilaian kuantitatif menggunakan Fréchet Inception Distance dan Inception Score pada tiap checkpoint pelatihan.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          <h4>Analisis Morfologis</h4>
+          <p>Inspeksi visual dan analisis kualitatif terhadap struktur anatomi burung hasil sintesis per komponen tubuh.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Key Impact</h2>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-number">49,56</span>
+          <span class="impact-label">FID terbaik (subset 2.000 citra)</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">6,14 ± 0,18</span>
+          <span class="impact-label">IS paling stabil (subset 5.000 citra)</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">200</span>
+          <span class="impact-label">Spesies burung tersintesis</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">1024²</span>
+          <span class="impact-label">Resolusi piksel citra sintesis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Challenges &amp; Learnings</h2>
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <i class="fa-solid fa-dna"></i>
+          <div>
+            <h4>Keragaman morfologis antar-spesies</h4>
+            <p>200 spesies burung dengan variasi bentuk, warna, dan pola bulu memperluas ruang distribusi fitur yang harus dipelajari model.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <i class="fa-solid fa-feather"></i>
+          <div>
+            <h4>Detail fine-grained sulit direkonstruksi</h4>
+            <p>Tekstur bulu halus dan bentuk paruh presisi masih menjadi tantangan karena keterbatasan arsitektur tanpa mekanisme attention.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <i class="fa-solid fa-image"></i>
+          <div>
+            <h4>Artefak visual pada latar belakang</h4>
+            <p>Fenomena background fusion dan color bleeding kadang muncul ketika objek burung menyatu dengan latar belakang yang kompleks.</p>
+          </div>
+        </div>
+        <div class="challenge-item">
+          <i class="fa-solid fa-chart-line"></i>
+          <div>
+            <h4>Hubungan non-linear antara ukuran data dan kualitas</h4>
+            <p>FID terbaik justru dicapai pada subset menengah (2.000 citra), bukan subset terbesar — menunjukkan model lightweight FastGAN lebih cepat konvergen pada data menengah, sementara subset 10.000 citra mengindikasikan underfitting pada batas 100.000 iterasi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Project Gallery</h2>
+      <div class="gallery-grid">
+        <!-- Tambahkan gambar di sini, ganti src sesuai path kamu -->
+        <img src="documentation/1.000 citra.jpg" alt="Hasil sintesis subset 1000 citra">
+        <img src="documentation/2.000 citra.jpg" alt="Hasil sintesis subset 2000 citra">
+        <img src="documentation/5.000 citra.jpg" alt="Hasil sintesis subset 5000 citra">
+        <img src="documentation/10.000 citra.jpg" alt="Hasil sintesis subset 10000 citra">
+        <img src="documentation/perbandingan terbaik fid.png" alt="Perbandingan citra asli dan sintesis">
+        <img src="documentation/failure-cases.png" alt="Contoh kasus kegagalan (failure cases)">
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Tech Stack</h2>
+      <div class="stack stack-box">
+        <span>FastGAN</span>·<span>Deep Learning</span>·<span>Generative Adversarial Network</span>·<span>Image Synthesis</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>
