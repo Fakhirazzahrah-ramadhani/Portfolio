@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Superstore Sales Dashboard — Fakhirazzahrah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">← Back to Home</a>
+    <h1>Global Superstore Sales Dashboard</h1>
+    <span class="role-badge">Role: Data Analyst</span>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-block">
+      <img class="detail-photo" src="documentation\superstore-dashboard-HD.png" alt="Global Superstore Sales Dashboard di Power BI">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">Data Analytics</span>
+      <span class="tag-badge">Power BI</span>
+      <span class="tag-badge">DAX</span>
+      <span class="tag-badge">Power Query</span>
+      <span class="tag-badge">Personal Project</span>
+    </div>
+
+    <div class="detail-block">
+    <h2>Executive Summary</h2>
+    <p>
+        Dashboard ini menganalisis performa penjualan retail global periode 2012–2015. Kesimpulan utamanya:
+        penjualan tumbuh <strong>90%</strong> dalam empat tahun, tapi pertumbuhan itu tidak merata di semua
+        kategori. <strong>Technology</strong> terbukti paling efisien — profit tinggi dengan diskon minim — sementara
+        <strong>Furniture</strong> justru mencatat profit terendah sekaligus Return Rate tertinggi, sebuah sinyal
+        yang mengindikasikan masalah kualitas produk yang berdampak langsung ke profitabilitasnya.
+    </p>
+    </div>
+
+    <div class="detail-grid">
+
+      <!-- ===== MAIN COLUMN ===== -->
+      <div class="detail-main">
+
+        <div class="detail-block">
+          <h2>Business Context</h2>
+          <p>
+            Sebuah perusahaan retail global mencatat total penjualan yang terus tumbuh dari tahun ke tahun,
+            namun manajemen tidak memiliki visibilitas jelas terhadap kategori produk mana yang benar-benar
+            mendorong profitabilitas, apakah strategi diskon yang berjalan efektif, dan kategori mana yang
+            berisiko terhadap kepuasan pelanggan. Dashboard ini dibangun untuk menjawab ketiga pertanyaan
+            tersebut menggunakan dataset Global Superstore (2012–2015).
+          </p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Problem &amp; Approach</h2>
+          <div class="problem-solution">
+            <div class="ps-card problem">
+              <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <h3>The Problem</h3>
+              <p>
+                Data transaksi mentah berjumlah ribuan baris tidak bisa langsung dibaca untuk pengambilan
+                keputusan. Tanpa agregasi dan visualisasi yang tepat, pola penting seperti kategori paling
+                merugi atau efektivitas diskon tetap tersembunyi di dalam data.
+              </p>
+            </div>
+            <div class="ps-card solution">
+              <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>The Approach</h3>
+              <p>
+                Membangun data model relasional dari tabel Orders, Returns, dan People, menulis custom DAX
+                measures untuk metrik bisnis kunci, lalu menyusun dashboard interaktif dengan filter dinamis
+                agar insight dapat dieksplorasi dari berbagai sudut pandang.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Methodology</h2>
+          <ul>
+            <li><strong>Data Cleaning</strong> — validasi tipe data, penghapusan duplikat, dan penanganan missing value menggunakan Power Query</li>
+            <li><strong>Data Modeling</strong> — membangun relationship antar tabel Orders, Returns, dan People berdasarkan Order ID dan Region</li>
+            <li><strong>DAX Measures</strong> — 7 custom measure, termasuk Total Sales, Profit Margin, Average Order Value, dan Return Rate</li>
+            <li><strong>Visualization</strong> — dashboard interaktif dengan KPI card, bar chart, line chart, scatter plot, dan map, dilengkapi slicer Category, Region, Segment, dan Date Range</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Key Insights</h2>
+          <ul>
+            <li><strong>Pertumbuhan konsisten</strong> — total sales naik dari Rp 2.259.440 (2012) ke Rp 4.299.865 (2015), pertumbuhan ~90% dalam 4 tahun dengan tren stabil setiap tahun.</li>
+            <li><strong>Technology paling efisien</strong> — profit tertinggi dengan diskon paling minim, sekaligus mendominasi 7 dari 10 produk terlaris.</li>
+            <li><strong>Office Supplies bergantung pada diskon besar</strong> — membutuhkan diskon terbesar di antara ketiga kategori, namun profit yang dihasilkan hanya di level menengah.</li>
+            <li><strong>Furniture paling bermasalah</strong> — mencatat profit terendah sekaligus Return Rate tertinggi, dua temuan dari chart berbeda yang saling mendukung satu kesimpulan.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Business Recommendations</h2>
+          <ul>
+            <li>Audit kualitas produk Furniture untuk menekan tingkat pengembalian</li>
+            <li>Evaluasi ulang strategi diskon Office Supplies agar lebih efisien terhadap profit</li>
+            <li>Perkuat stok dan promosi kategori Technology yang terbukti paling menguntungkan</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Challenges &amp; Learnings</h2>
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <i class="fa-solid fa-diagram-project"></i>
+              <div>
+                <h4>Ambiguous relationship antar tabel</h4>
+                <p>Menemukan Power BI otomatis mendeteksi lebih dari satu kemungkinan relationship antara tabel Orders dan People (via kolom Region yang muncul di kedua tabel), sehingga perlu dipahami cara kerja active vs inactive relationship agar model tidak ambigu.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-percent"></i>
+              <div>
+                <h4>Interpretasi visual yang keliru</h4>
+                <p>Awalnya salah membaca scatter plot Discount vs Profit dengan mengasumsikan posisi paling kanan berarti paling menguntungkan. Belajar bahwa efisiensi sebenarnya ditentukan oleh kombinasi diskon kecil dan profit besar (posisi kiri-atas), bukan besar kecilnya satu sumbu saja.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-code"></i>
+              <div>
+                <h4>Belajar DAX dari nol</h4>
+                <p>Sebagai pengalaman pertama dengan Power BI, perlu memahami perbedaan measure dan kolom biasa, serta cara menulis formula DAX seperti DIVIDE dan DISTINCTCOUNT untuk menghasilkan metrik bisnis yang akurat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Project Gallery</h2>
+          <div class="gallery-grid">
+            <img src="documentation\ReturnRate.png" alt="Analisis Return Rate by Category">
+            <img src="documentation\DataSuperstore.png" alt="Data model Orders, Returns, dan People">
+             <img src="documentation\DataSpecific.png" alt="Data Spesific">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="detail-sidebar">
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-circle-info"></i> Quick Facts</h3>
+          <ul class="sidebar-feature-list">
+            <li><i class="fa-solid fa-database"></i> Dataset: Global Superstore 2016 (Kaggle)</li>
+            <li><i class="fa-solid fa-calendar"></i> Periode data: 2012–2015</li>
+            <li><i class="fa-solid fa-table"></i> 3 tabel: Orders, Returns, People</li>
+            <li><i class="fa-solid fa-square-root-variable"></i> 7 custom DAX measures</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-chart-line"></i> Key Impact</h3>
+          <div class="sidebar-impact-list">
+            <div class="sidebar-impact-item">
+              <div class="impact-number">90%</div>
+              <div class="impact-label">Pertumbuhan sales 2012–2015</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">12,64M</div>
+              <div class="impact-label">Total Sales</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">11,61%</div>
+              <div class="impact-label">Profit Margin</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">4,19%</div>
+              <div class="impact-label">Return Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-brands fa-github"></i> Project Link</h3>
+          <p style="margin:0;">
+            <a href="https://github.com/Fakhirazzahrah-ramadhani/Powerbi_global_superstore_dashboard.git" target="_blank" rel="noopener">
+              View full project on GitHub →
+            </a>
+          </p>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>
