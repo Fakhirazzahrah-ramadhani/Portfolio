@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Customer Segmentation — Fakhirazzahrah Ramadhani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">← Back to Home</a>
+    <h1>E-Commerce Customer Segmentation: How 16% of Customers Drive 65% of Revenue</h1>
+    <span class="role-badge">Role: Data Analyst</span>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-block">
+      <img class="detail-photo" src="documentation\revenue_segmen.png" alt="Revenue per segmen hasil RFM clustering">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">Data Analytics</span>
+      <span class="tag-badge">Python</span>
+      <span class="tag-badge">Pandas</span>
+      <span class="tag-badge">Scikit-learn</span>
+      <span class="tag-badge">K-Means Clustering</span>
+      <span class="tag-badge">Personal Project</span>
+    </div>
+
+    <div class="detail-block">
+      <h2>Executive Summary</h2>
+      <p>
+        Menggunakan RFM analysis dan K-Means clustering untuk mensegmentasi 4.338 pelanggan e-commerce.
+        Temuan utamanya: segmen <strong>Champions</strong> hanya 16,4% dari total pelanggan, namun
+        menyumbang <strong>64,9%</strong> dari total revenue, sementara segmen <strong>Lost/Hibernating</strong>
+        adalah kelompok terbesar (37,4% pelanggan) tapi hanya berkontribusi 6,2% revenue.
+      </p>
+    </div>
+
+    <div class="detail-grid">
+
+      <!-- ===== MAIN COLUMN ===== -->
+      <div class="detail-main">
+
+        <div class="detail-block">
+          <h2>Business Context</h2>
+          <p>
+            Perusahaan e-commerce dengan ribuan pelanggan sulit menentukan kepada siapa fokus strategi
+            retensi dan marketing harus diarahkan, terutama dengan budget yang terbatas. Tanpa segmentasi
+            yang jelas, treatment marketing biasanya diberikan secara merata ke semua pelanggan, padahal
+            tidak semua pelanggan memberi kontribusi nilai yang sama terhadap revenue.
+          </p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Problem &amp; Approach</h2>
+          <div class="problem-solution">
+            <div class="ps-card problem">
+              <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <h3>The Problem</h3>
+              <p>
+                Data transaksi mentah tidak menunjukkan siapa pelanggan paling bernilai, siapa yang
+                berisiko churn, dan siapa yang berpotensi berkembang. Tanpa segmentasi berbasis data,
+                strategi retensi dan marketing berjalan tanpa prioritas yang jelas.
+              </p>
+            </div>
+            <div class="ps-card solution">
+              <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>The Approach</h3>
+              <p>
+                Menghitung metrik RFM (Recency, Frequency, Monetary) per pelanggan, lalu menerapkan
+                K-Means clustering untuk mengelompokkan pelanggan secara otomatis berdasarkan pola
+                perilaku belanja mereka, kemudian memberi nama segmen yang mudah dipahami tim bisnis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Methodology</h2>
+          <ul>
+            <li><strong>Data Cleaning</strong> menghapus transaksi tanpa CustomerID, transaksi retur (quantity negatif/harga nol), dan duplikat</li>
+            <li><strong>RFM Calculation</strong> menghitung Recency, Frequency, dan Monetary per pelanggan menggunakan reference date H+1 dari transaksi terakhir</li>
+            <li><strong>RFM Scoring</strong> membagi tiap metrik ke skala 1-5 menggunakan kuintil (pd.qcut)</li>
+            <li><strong>Data Preparation</strong> log-transform untuk mengurangi skewness, dilanjutkan standardization agar tiap metrik sebanding sebelum clustering</li>
+            <li><strong>Menentukan k Optimal</strong>  menggunakan Elbow Method (inertia) dan Silhouette Score untuk k=2 sampai k=8</li>
+            <li><strong>K-Means Clustering</strong> clustering final dengan k=4</li>
+            <li><strong>Segment Profiling</strong>  menghitung rata-rata RFM per cluster, lalu memberi nama segmen berdasarkan karakteristik data asli (bukan template generik)</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Key Insights</h2>
+          <ul>
+            <li><strong>Champions (16,4% pelanggan) = 64,9% revenue</strong>  segmen dengan Recency rendah (baru saja belanja), Frequency tinggi, dan Monetary tertinggi. Kelompok paling kecil tapi paling menentukan pendapatan perusahaan.</li>
+            <li><strong>At Risk (26,9% pelanggan) = 23,6% revenue</strong>  pernah bernilai tinggi (Monetary lumayan besar), tapi Recency mulai naik, tanda mulai jarang belanja dan berisiko churn.</li>
+            <li><strong>Lost/Hibernating (37,4% pelanggan) = hanya 6,2% revenue</strong>  kelompok terbesar dari sisi jumlah, tapi kontribusi revenue paling kecil, dengan Recency paling tinggi (sudah lama tidak belanja).</li>
+            <li><strong>New/Promising (19,3% pelanggan) = 5,2% revenue</strong>  pelanggan baru dengan Frequency masih rendah, berpotensi berkembang jika ditangani dengan tepat.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Business Recommendations</h2>
+          <ul>
+            <li>Prioritaskan program loyalitas dan layanan eksklusif untuk segmen Champions 
+               mempertahankan mereka berdampak langsung ke ~65% revenue</li>
+            <li>Jalankan kampanye win-back (diskon khusus, reminder personal) untuk segmen At Risk sebelum mereka sepenuhnya churn</li>
+            <li>Berikan onboarding dan nurturing campaign untuk segmen New/Promising agar bertransisi menjadi Champions</li>
+            <li>Alokasikan budget marketing minimal untuk segmen Lost/Hibernating 
+               ROI rendah dibanding segmen lain, kecuali untuk kampanye reaktivasi berbiaya rendah</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Challenges &amp; Learnings</h2>
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>
+                <h4>Menentukan jumlah cluster yang tepat</h4>
+                <p>Elbow Method saja sering ambigu karena kurva penurunan inertia landai secara bertahap. Menggabungkan dengan Silhouette Score membantu memvalidasi bahwa k=4 memang memberi pemisahan segmen yang paling jelas.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-square-root-variable"></i>
+              <div>
+                <h4>Skewness pada data Monetary</h4>
+                <p>Distribusi Monetary sangat miring (beberapa pelanggan belanja jauh di atas rata-rata), yang bisa mendominasi hasil clustering jika tidak ditangani. Log-transform dan standardization diperlukan sebelum data layak dipakai K-Means.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <div>
+                <h4>Konflik versi library</h4>
+                <p>Sempat terhambat error kompatibilitas antara NumPy 2.x dan versi scikit-learn yang lebih lama. Diselesaikan dengan meng-update scikit-learn dan menjalankan ulang seluruh notebook secara berurutan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Project Gallery</h2>
+          <div class="gallery-grid">
+            <img src="documentation\pelanggan_segmen.png" alt="Jumlah pelanggan per segmen">
+            <img src="documentation\recencyvsmonetary.png" alt="Scatter plot Recency vs Monetary per segmen">
+            <img src="documentation\contoh_data_rfm.png" alt="Contoh data RFM per pelanggan">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="detail-sidebar">
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-circle-info"></i> Quick Facts</h3>
+          <ul class="sidebar-feature-list">
+            <li><i class="fa-solid fa-database"></i> Dataset: Online Retail (UCI)</li>
+            <li><i class="fa-solid fa-users"></i> 4.338 pelanggan dianalisis</li>
+            <li><i class="fa-solid fa-layer-group"></i> Metode: RFM + K-Means (k=4)</li>
+            <li><i class="fa-brands fa-python"></i> Python, Pandas, Scikit-learn</li>
+            <li><i class="fa-solid fa-user"></i> Dikerjakan solo, end-to-end</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-chart-line"></i> Key Impact</h3>
+          <div class="sidebar-impact-list">
+            <div class="sidebar-impact-item">
+              <div class="impact-number">16,4%</div>
+              <div class="impact-label">Pelanggan tergolong Champions</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">64,9%</div>
+              <div class="impact-label">Revenue dari segmen Champions</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">4</div>
+              <div class="impact-label">Segmen pelanggan teridentifikasi</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">37,4%</div>
+              <div class="impact-label">Pelanggan berisiko hilang (Lost/Hibernating)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-brands fa-github"></i> Project Link</h3>
+          <p style="margin:0;">
+            <a href="https://github.com/Fakhirazzahrah-ramadhani/customer-segmentation-rfm.git" target="_blank" rel="noopener">
+              View full project on GitHub →
+            </a>
+          </p>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">© 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>
