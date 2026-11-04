@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spermonde Dive Rental | Fakhirazzahrah Ramadhani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .three-sides{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;}
+    .side-card{border:1px solid rgba(8,59,85,.15);border-top:4px solid #13a6a1;border-radius:12px;padding:18px;background:#fff;}
+    .side-card.admin{border-top-color:#083b55;}
+    .side-card.system{border-top-color:#c1440e;}
+    .side-card h3{margin:0 0 4px 0;font-size:1.05rem;}
+    .side-card .who{margin:0 0 10px 0;font-size:.85rem;opacity:.7;}
+    .side-card ul{margin:0;padding-left:18px;}
+    .side-card li{margin-bottom:6px;}
+    .flow{list-style:none;margin:16px 0 0 0;padding:0;counter-reset:step;}
+    .flow li{position:relative;padding:0 0 18px 48px;counter-increment:step;}
+    .flow li::before{content:counter(step);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:#083b55;color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem;}
+    .flow li::after{content:"";position:absolute;left:15px;top:34px;bottom:2px;width:2px;background:rgba(8,59,85,.2);}
+    .flow li:last-child::after{display:none;}
+    .flow li.admin-step::before{background:#13a6a1;}
+    .flow strong{display:block;}
+    .flow span{font-size:.92rem;opacity:.8;}
+    .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;margin-top:8px;}
+    .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px;}
+    .map-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.93rem;}
+    .map-table th,.map-table td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(8,59,85,.12);vertical-align:top;}
+    .map-table th{font-size:.82rem;opacity:.7;}
+    .map-table code{font-size:.82rem;background:rgba(8,59,85,.07);padding:2px 6px;border-radius:4px;white-space:nowrap;}
+    .challenge{border-left:4px solid #13a6a1;background:rgba(19,166,161,.06);border-radius:0 10px 10px 0;padding:14px 18px;margin-top:14px;}
+    .challenge h3{margin:0 0 6px 0;font-size:1.02rem;}
+    .challenge p{margin:0 0 6px 0;}
+    .challenge .problem{opacity:.8;}
+    .challenge .solution{margin-bottom:0;}
+    @media (max-width:640px){.map-table code{white-space:normal;}}
+  </style>
+</head>
+<body>
+<div class="topnav"><div class="container"><a class="brand" href="index.html#home">Fakhira's Pages</a><nav><a href="index.html#home">Home</a><a href="index.html#about">About</a><a href="index.html#projects">Projects</a><a href="index.html#certificates">Certificates</a><a href="index.html#contact" class="nav-cta">Contact Me</a></nav></div></div>
+
+<header class="detail-hero"><div class="container"><a class="back-link" href="index.html#projects">&larr; Back to Projects</a><h1>Spermonde Dive Rental</h1><span class="role-badge">Role: Web Development</span></div></header>
+
+<div class="detail-body"><div class="container">
+
+  <!-- Ganti dengan screenshot asli: <img src="images/spermonde-home.png" alt="Halaman utama Spermonde Dive Rental" style="width:100%;border-radius:16px;"> -->
+  <div class="detail-block"><div class="detail-hero-image" style="min-height:320px;display:grid;place-items:center;background:linear-gradient(135deg,#083b55,#13a6a1);color:#fff;font-size:5rem;border-radius:16px;"><i class="fa-solid fa-water" aria-hidden="true"></i></div></div>
+
+  <div class="detail-tags tags-on-light"><span class="tag-badge tag-primary">Full-Stack Web App</span><span class="tag-badge">Booking System</span><span class="tag-badge">Admin Dashboard</span><span class="tag-badge">Inventory</span></div>
+
+  <div class="detail-block">
+    <h2>Singkatnya</h2>
+    <p><strong>Spermonde Dive Rental adalah sistem lengkap untuk usaha sewa alat selam.</strong> Penyewa memesan dan membayar secara online. Pemilik usaha mengelola stok, pemesanan, pengembalian alat, dan keuangan dari satu dashboard admin.</p>
+    <p>Proyek ini dibuat karena usaha penyewaan alat selam keluarga selama ini berjalan tanpa inventaris tertulis dan tanpa platform pemesanan. Sekarang setiap alat tercatat, setiap sewa punya riwayat, dan setiap transaksi punya invoice.</p>
+    <p><a class="btn btn-solid" href="https://spermondediverental.netlify.app/" target="_blank" rel="noopener">Visit Live Website &rarr;</a></p>
+  </div>
+
+  <div class="detail-block">
+    <h2>Tiga Sisi Sistem</h2>
+    <p>Supaya mudah dipahami, aplikasi ini terbagi menjadi tiga bagian yang saling terhubung.</p>
+    <div class="three-sides">
+      <div class="side-card">
+        <h3><i class="fa-solid fa-user"></i> Sisi Penyewa</h3>
+        <p class="who">Yang dilihat pelanggan</p>
+        <ul>
+          <li>Login dengan akun Google</li>
+          <li>Pilih tanggal dan lihat alat yang tersedia</li>
+          <li>Masukkan alat ke keranjang dan buat booking</li>
+          <li>Bayar sebelum batas waktu habis</li>
+          <li>Lihat dan cetak invoice</li>
+        </ul>
+      </div>
+      <div class="side-card admin">
+        <h3><i class="fa-solid fa-user-gear"></i> Sisi Admin</h3>
+        <p class="who">Yang dipakai pemilik usaha</p>
+        <ul>
+          <li>Kelola alat, kategori, dan setiap unitnya</li>
+          <li>Buat dan pantau booking</li>
+          <li>Catat pengembalian alat</li>
+          <li>Pantau inventaris dan keuangan</li>
+        </ul>
+      </div>
+      <div class="side-card system">
+        <h3><i class="fa-solid fa-gears"></i> Di Balik Layar</h3>
+        <p class="who">Yang bekerja otomatis</p>
+        <ul>
+          <li>Cek ketersediaan per tanggal</li>
+          <li>Hitung biaya sewa per hari</li>
+          <li>Hitung mundur batas pembayaran</li>
+          <li>Login Google dan hak akses admin</li>
+          <li>Pelacakan booking per akun penyewa</li>
+          <li>API untuk menghubungkan semuanya</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-grid"><div class="detail-main">
+
+    <div class="detail-block">
+      <h2>Perjalanan Satu Booking</h2>
+      <p>Dari pelanggan memilih alat sampai alat kembali ke rak, begini alurnya.</p>
+      <ol class="flow">
+        <li><strong>Pelanggan login dengan akun Google</strong><span>Akun wajib dibuat atau masuk dulu sebelum memesan, supaya setiap booking tercatat atas nama penyewa dan bisa dilacak.</span></li>
+        <li><strong>Pelanggan memilih tanggal sewa</strong><span>Sistem langsung menampilkan hanya alat yang masih tersedia di tanggal itu.</span></li>
+        <li><strong>Alat masuk keranjang</strong><span>Beberapa alat bisa dipesan sekaligus dalam satu booking.</span></li>
+        <li><strong>Booking dibuat</strong><span>Halaman booking menampilkan hitung mundur batas waktu pembayaran.</span></li>
+        <li><strong>Pelanggan membayar</strong><span>Setelah pembayaran, invoice tersedia dan bisa dicetak.</span></li>
+        <li class="admin-step"><strong>Admin menyiapkan dan menyerahkan alat</strong><span>Status booking dipantau dari dashboard admin.</span></li>
+        <li class="admin-step"><strong>Alat dikembalikan dan dicatat</strong><span>Admin mencatat pengembalian sehingga alat kembali tersedia untuk penyewa berikutnya.</span></li>
+      </ol>
+      <div class="legend"><span><i style="background:#083b55"></i>Dilakukan penyewa</span><span><i style="background:#13a6a1"></i>Dilakukan admin</span></div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Peta Fitur Admin</h2>
+      <p>Dashboard admin adalah bagian paling besar dari proyek ini. Setiap menu punya satu tugas yang jelas.</p>
+      <table class="map-table">
+        <tr><th>Menu</th><th>Fungsinya</th></tr>
+        <tr><td><strong>Alat &amp; Unit</strong><br><code>admin/alat/[id]</code></td><td>Satu jenis alat bisa punya banyak unit fisik. Tiap unit dikelola sendiri.</td></tr>
+        <tr><td><strong>Booking</strong><br><code>admin/bookings</code></td><td>Tabel semua pemesanan, plus formulir untuk membuat booking baru langsung oleh admin.</td></tr>
+        <tr><td><strong>Inventaris</strong><br><code>admin/inventory</code></td><td>Gambaran stok seluruh alat dan statusnya.</td></tr>
+        <tr><td><strong>Pengembalian</strong><br><code>admin/returns</code></td><td>Mencatat alat yang kembali, termasuk pengambilan foto lewat kamera perangkat.</td></tr>
+        <tr><td><strong>Keuangan</strong><br><code>admin/finance</code></td><td>Ringkasan pemasukan dari penyewaan.</td></tr>
+        <tr><td><strong>Katalog</strong><br><code>admin/equipment</code></td><td>Tambah alat baru, atur kategori, dan lihat daftar alat.</td></tr>
+      </table>
+    </div>
+
+    <div class="detail-block">
+      <h2>Tantangan &amp; Solusi</h2>
+      <p>Sistem sewa terlihat sederhana dari luar, tetapi ada beberapa masalah nyata yang harus dipecahkan agar usahanya bisa berjalan tanpa kekacauan.</p>
+
+      <div class="challenge">
+        <h3>Satu alat dipesan dua orang</h3>
+        <p class="problem">Tanpa pengecekan, dua pelanggan bisa memesan alat yang sama di tanggal yang bertabrakan.</p>
+        <p class="solution"><strong>Solusi:</strong> pelanggan memilih tanggal lebih dulu, dan sistem hanya menampilkan alat yang tidak terpakai pada periode itu. Alat yang sudah dipesan tidak muncul lagi.</p>
+      </div>
+
+      <div class="challenge">
+        <h3>Satu jenis alat, banyak unit fisik</h3>
+        <p class="problem">Usaha ini punya beberapa BCD dengan merek dan ukuran yang sama. Menghitung stok per jenis saja tidak cukup, karena tiap unit bisa berbeda kondisi dan jadwalnya.</p>
+        <p class="solution"><strong>Solusi:</strong> alat dipisah menjadi jenis alat dan unit fisiknya, dengan halaman pengelola unit di dashboard admin. Ketersediaan dihitung dari unit yang sedang bebas.</p>
+      </div>
+
+      <div class="challenge">
+        <h3>Booking yang tidak pernah dibayar</h3>
+        <p class="problem">Booking yang dibiarkan menggantung membuat alat terkunci padahal tidak jadi disewa.</p>
+        <p class="solution"><strong>Solusi:</strong> setiap booking punya batas waktu pembayaran dengan hitung mundur. Kalau waktu habis tanpa pembayaran, alat dilepas kembali agar bisa dipesan orang lain.</p>
+      </div>
+
+      <div class="challenge">
+        <h3>Sengketa kondisi alat saat dikembalikan</h3>
+        <p class="problem">Tanpa bukti, sulit membuktikan apakah alat rusak sebelum atau sesudah disewa.</p>
+        <p class="solution"><strong>Solusi:</strong> saat pengembalian, admin mengambil foto alat langsung dari kamera perangkat dan menyimpannya bersama catatan pengembalian.</p>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <h2>Peran Saya</h2>
+      <ul>
+        <li>Merancang alur pemesanan dari pilih tanggal sampai invoice.</li>
+        <li>Membangun dashboard admin untuk alat, unit, booking, pengembalian, dan keuangan.</li>
+        <li>Menyusun struktur data alat, kategori, unit, dan booking di Supabase.</li>
+        <li>Membuat antarmuka katalog, keranjang, dan halaman pembayaran.</li>
+        <li>Mempublikasikan website melalui Netlify.</li>
+      </ul>
+    </div>
+
+    <div class="detail-block">
+      <h2>Rencana Pengembangan</h2>
+      <ul>
+        <li>Kode unik dan QR pada setiap unit alat untuk mempercepat pencatatan keluar dan kembali.</li>
+        <li>Pengingat jadwal servis untuk alat penting seperti tabung dan regulator.</li>
+        <li>Laporan alat paling sering disewa.</li>
+      </ul>
+    </div>
+
+  </div><aside class="detail-sidebar">
+    <div class="sidebar-box"><h3><i class="fa-solid fa-circle-info"></i> Project Overview</h3>
+      <ul class="sidebar-feature-list">
+        <li><i class="fa-brands fa-google"></i> Login dengan Google</li>
+        <li><i class="fa-solid fa-calendar-days"></i> Ketersediaan per tanggal</li>
+        <li><i class="fa-solid fa-cart-shopping"></i> Keranjang &amp; booking</li>
+        <li><i class="fa-solid fa-hourglass-half"></i> Batas waktu bayar</li>
+        <li><i class="fa-solid fa-file-invoice"></i> Invoice cetak</li>
+        <li><i class="fa-solid fa-boxes-stacked"></i> Inventaris &amp; unit alat</li>
+        <li><i class="fa-solid fa-camera"></i> Foto saat pengembalian</li>
+        <li><i class="fa-solid fa-chart-line"></i> Keuangan</li>
+      </ul>
+    </div>
+    <div class="sidebar-box"><h3><i class="fa-solid fa-screwdriver-wrench"></i> Tech</h3>
+      <ul class="sidebar-feature-list">
+        <li><i class="fa-brands fa-react"></i> Next.js (App Router) &amp; TypeScript</li>
+        <li><i class="fa-solid fa-database"></i> Supabase</li>
+        <li><i class="fa-solid fa-cloud"></i> Netlify</li>
+      </ul>
+    </div>
+    <div class="sidebar-box"><h3><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Project</h3><p style="margin:0;"><a href="https://spermondediverental.netlify.app/" target="_blank" rel="noopener">Open Spermonde Dive Rental &rarr;</a></p></div>
+  </aside></div>
+
+</div></div>
+<footer><div class="container"><div class="fine">&copy; 2026 Fakhirazzahrah Ramadhani</div></div></footer>
+</body>
+</html>

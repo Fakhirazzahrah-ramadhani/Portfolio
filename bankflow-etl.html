@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BankFlow ETL &amp; Transaction Data Warehouse | Fakhirazzahrah Ramadhani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="container">
+    <a class="brand" href="index.html#home">Fakhira's Pages</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#certificates">Certificates</a>
+      <a href="index.html#contact" class="nav-cta">Contact Me</a>
+    </nav>
+  </div>
+</div>
+
+<header class="detail-hero">
+  <div class="container">
+    <a class="back-link" href="index.html#projects">&larr; Back to Projects</a>
+    <h1>BankFlow ETL &amp; Transaction Data Warehouse</h1>
+    <span class="role-badge">Role: ETL Developer / Data Engineer</span>
+  </div>
+</header>
+
+<div class="detail-body">
+  <div class="container">
+
+    <div class="detail-block">
+      <!-- Simpan screenshot dashboard dengan nama ini, atau ubah path sesuai lokasi file. -->
+      <img class="detail-photo" src="documentation/dataFlow-etl1.png" alt="Dashboard BankFlow menampilkan ringkasan transaksi, tren bulanan, jenis transaksi, dan data kualitas">
+    </div>
+
+    <div class="detail-tags tags-on-light">
+      <span class="tag-badge tag-primary">Data Engineering</span>
+      <span class="tag-badge">Python</span>
+      <span class="tag-badge">PostgreSQL</span>
+      <span class="tag-badge">SQLAlchemy</span>
+      <span class="tag-badge">Docker</span>
+      <span class="tag-badge">Streamlit</span>
+      <span class="tag-badge">Personal Project</span>
+    </div>
+
+    <div class="detail-block">
+      <h2>Ringkasan Proyek</h2>
+      <p>
+        BankFlow adalah pipeline ETL untuk mengubah data transaksi sintetis yang berantakan menjadi data warehouse
+        berbentuk star schema. Pipeline memproses <strong>5.000 baris</strong>, memuat <strong>4.850 transaksi valid</strong>,
+        dan mencatat <strong>150 baris yang ditolak</strong> beserta alasannya. Rekonsiliasi jumlah dan nominal menghasilkan
+        <strong>selisih nol</strong>, sementara lima tes otomatis lulus.
+      </p>
+      <p>
+        Proyek ini dibuat untuk pembelajaran dan menggunakan data sintetis, bukan data nasabah atau transaksi bank sungguhan.
+      </p>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+
+        <div class="detail-block">
+          <h2>Konteks Proyek</h2>
+          <p>
+            File transaksi mentah sering memiliki format tanggal berbeda, ID berulang, nilai kosong, dan referensi nasabah
+            yang tidak dikenal. Jika langsung dimasukkan ke sistem analitik, masalah tersebut dapat menghasilkan hitungan
+            yang keliru atau membuat proses pemuatan gagal. BankFlow menunjukkan alur untuk menjaga data mentah, memeriksa
+            kualitasnya, dan menjelaskan setiap baris yang tidak dimuat.
+          </p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Masalah &amp; Solusi</h2>
+          <div class="problem-solution">
+            <div class="ps-card problem">
+              <div class="ps-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <h3>Masalah</h3>
+              <p>
+                Data sumber bercampur format dan memiliki beberapa jenis masalah kualitas. Tanpa proses yang teratur,
+                transaksi duplikat dapat dihitung ganda, tanggal sulit dibaca konsisten, dan baris tidak valid tidak
+                memiliki jejak alasan penolakan.
+              </p>
+            </div>
+            <div class="ps-card solution">
+              <div class="ps-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>Pendekatan</h3>
+              <p>
+                Membangun pipeline extract, transform, load, dan reconcile. Data mentah disimpan di staging, aturan
+                validasi memisahkan transaksi bersih dari baris yang ditolak, lalu transaksi valid dimuat ke star schema
+                dan diperiksa kembali melalui rekonsiliasi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Alur Kerja ETL</h2>
+          <ul>
+            <li><strong>Extract</strong> membaca CSV dengan Pandas sebagai teks agar format mentah tidak berubah, lalu memuatnya ke tabel staging PostgreSQL.</li>
+            <li><strong>Transform &amp; Data Quality</strong> menormalkan tanggal dan jenis transaksi, menghapus spasi berlebih pada nama, mendeteksi ID ganda dengan <code>ROW_NUMBER()</code>, serta mencatat baris yang ditolak di tabel audit.</li>
+            <li><strong>Warehouse Modeling</strong> memuat data ke dimensi nasabah, tanggal, dan jenis transaksi serta tabel fakta transaksi.</li>
+            <li><strong>Idempotent Load</strong> menggunakan <code>ON CONFLICT (transaction_id) DO NOTHING</code> agar transaksi yang sama tidak dimuat berulang.</li>
+            <li><strong>Orchestration &amp; Validation</strong> menjalankan semua langkah dengan satu <code>run_id</code>, memeriksa rekonsiliasi, dan menguji integritas dengan pytest.</li>
+            <li><strong>Dashboard</strong> membuat tampilan Streamlit untuk tren bulanan, nominal per jenis, nasabah teratas, dan alasan penolakan.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Hasil Pemeriksaan Kualitas Data</h2>
+          <ul>
+            <li><strong>50 <code>DUPLICATE_ID</code></strong> transaksi dengan ID yang muncul lebih dari sekali.</li>
+            <li><strong>30 <code>NULL_AMOUNT</code></strong> transaksi tanpa nominal.</li>
+            <li><strong>25 <code>NEGATIVE_AMOUNT</code></strong> transaksi dengan nominal negatif.</li>
+            <li><strong>35 <code>UNKNOWN_CUSTOMER</code></strong> transaksi dengan ID nasabah yang tidak ada di master.</li>
+            <li><strong>10 <code>BAD_DATE</code></strong> transaksi dengan tanggal yang tidak valid.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Rekonsiliasi &amp; Hasil Akhir</h2>
+          <ul>
+            <li><strong>Jumlah baris seimbang</strong> 5.000 baris sumber = 4.850 transaksi di warehouse + 150 baris ditolak.</li>
+            <li><strong>Nominal seimbang</strong> Rp2.092.061.000 dari sumber = Rp2.062.529.000 di warehouse + Rp29.532.000 dari baris yang ditolak.</li>
+            <li><strong>Selisih rekonsiliasi</strong> 0 baris dan Rp0.</li>
+            <li><strong>Warehouse terisi</strong> 480 nasabah unik, 304 tanggal kalender, dan 4.850 transaksi fakta.</li>
+            <li><strong>Pengujian</strong> 5 tes pytest lulus, mencakup rekonsiliasi, ID unik, nominal positif, foreign key, dan ground truth.</li>
+          </ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Tantangan &amp; Pembelajaran</h2>
+          <div class="challenge-list">
+            <div class="challenge-item">
+              <i class="fa-solid fa-calendar-days"></i>
+              <div>
+                <h4>Format tanggal campuran</h4>
+                <p>Menangani tanggal ISO, format hari/bulan/tahun, dan nama bulan Indonesia sambil memastikan format dd/mm/yyyy dibaca sebagai hari terlebih dahulu.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-filter-circle-xmark"></i>
+              <div>
+                <h4>Aturan penolakan yang dapat diaudit</h4>
+                <p>Memisahkan data valid dari lima kategori masalah dan menyimpan payload mentah agar alasan penolakan tetap dapat ditelusuri.</p>
+              </div>
+            </div>
+            <div class="challenge-item">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <div>
+                <h4>Menjaga hasil tetap seimbang</h4>
+                <p>Membuktikan bahwa jumlah serta nominal sumber sama dengan data yang dimuat ditambah data yang ditolak, termasuk saat pipeline dijalankan ulang.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-circle-info"></i> Ringkasan Teknis</h3>
+          <ul class="sidebar-feature-list">
+            <li><i class="fa-solid fa-database"></i> Sumber: CSV sintetis</li>
+            <li><i class="fa-solid fa-table"></i> 3 schema PostgreSQL: staging, warehouse, audit</li>
+            <li><i class="fa-solid fa-calendar"></i> Periode transaksi: Jan–Okt 2026</li>
+            <li><i class="fa-solid fa-vial"></i> 5 tes otomatis lulus</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-solid fa-chart-line"></i> Angka Utama</h3>
+          <div class="sidebar-impact-list">
+            <div class="sidebar-impact-item">
+              <div class="impact-number">5.000</div>
+              <div class="impact-label">Baris sumber diproses</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">4.850</div>
+              <div class="impact-label">Transaksi dimuat ke warehouse</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">150</div>
+              <div class="impact-label">Baris ditolak dan diaudit</div>
+            </div>
+            <div class="sidebar-impact-item">
+              <div class="impact-number">0</div>
+              <div class="impact-label">Selisih rekonsiliasi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <h3><i class="fa-brands fa-github"></i> Project Link</h3>
+          <p style="margin:0;">
+            <a href="https://github.com/Fakhirazzahrah-ramadhani/BankFlow-ETL" target="_blank" rel="noopener">
+              View project on GitHub &rarr;
+            </a>
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="detail-block" aria-labelledby="dashboard-docs-title">
+      <h2 id="dashboard-docs-title">Dokumentasi Dashboard</h2>
+      <p>Contoh tampilan dashboard BankFlow dengan pilihan filter yang berbeda.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px;align-items:start;">
+        <figure style="margin:0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);">
+          <img class="detail-photo" src="documentation/bankflow-etl2.png" alt="Dashboard BankFlow menampilkan tren, nasabah dengan nominal terbesar, dan alasan penolakan">
+          <figcaption style="color:var(--ink-soft);font-size:.9rem;line-height:1.5;">Ringkasan visual hasil ETL: tren transaksi, nasabah dengan nominal terbesar, dan jumlah baris yang ditolak.</figcaption>
+        </figure>
+        <figure style="margin:0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);">
+          <img class="detail-photo" src="documentation/filter-data.png" alt="Dashboard BankFlow dengan filter jenis transaksi BAYAR dan periode Januari 2026">
+          <figcaption style="color:var(--ink-soft);font-size:.9rem;line-height:1.5;">Filter <strong>BAYAR</strong> untuk periode 1-31 Januari 2026. Ringkasan dan grafik mengikuti pilihan filter.</figcaption>
+        </figure>
+        <figure style="margin:0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--card);">
+          <img class="detail-photo" src="documentation/filter-transfer-ETL.png" alt="Dashboard BankFlow dengan filter jenis transaksi TRANSFER dan periode Januari 2026">
+          <figcaption style="color:var(--ink-soft);font-size:.9rem;line-height:1.5;">Filter <strong>TRANSFER</strong> untuk periode 1-31 Januari 2026, dengan metrik dan visualisasi yang diperbarui.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="fine">&copy; 2026 Fakhirazzahrah Ramadhani</div>
+  </div>
+</footer>
+
+</body>
+</html>
