@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="documentation/profile.jpeg" alt="Fakhirazzahrah Ramadhani Profile Photo">
+      <img src="documentation/profile.png" alt="Fakhirazzahrah Ramadhani Profile Photo">
     </div>
   </div>
 </header>
@@ -46,11 +46,17 @@
   <div class="container reveal">
     <div class="section-label">MY Portfolio</div>
     <h2>Featured Projects</h2>
+    <div class="project-filters" role="group" aria-label="Filter projects by category">
+      <button class="project-filter is-active" type="button" data-filter="all" aria-pressed="true">All Projects</button>
+      <button class="project-filter" type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
+      <button class="project-filter" type="button" data-filter="ai" aria-pressed="false">AI &amp; Machine Learning</button>
+      <button class="project-filter" type="button" data-filter="web" aria-pressed="false">Web &amp; Cloud</button>
+    </div>
 
     <div class="project-grid">
       
 
-      <div class="project-card">
+      <div class="project-card" data-category="data">
 
       <div class="detail-block">
        <img class="detail-photo" src="documentation/page2Weather.png" alt="Dashboard Weather ETL & Forecasting Platform">
@@ -68,7 +74,7 @@
         <a class="card-link" href="project-weather.html">View Details →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-category="ai">
 
         <div class="detail-block">
       <img class="detail-photo" src="documentation/perbandingan terbaik fid.png" alt="Visualisasi hasil sintesis citra burung model FastGAN">
@@ -86,7 +92,7 @@
         <a class="card-link" href="project-fastgan.html">View Details →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-category="ai">
 
         <div class="detail-hero-image">
       <img src="documentation/skinscan-banner.jpeg" alt="SkinScan Project Presentation">
@@ -103,7 +109,7 @@
         <a class="card-link" href="project-skinscan.html">View Details →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-category="web">
         <div class="detail-block">
           <img class="detail-photo" src="documentation/Arina_Dash_Admin.png" alt="Dashboard admin Ticketing System PT Telkom Akses">
         </div>
@@ -119,7 +125,7 @@
         <a class="card-link" href="project-ticketing.html">View Details →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-category="data">
       <div class="detail-block">
        <img class="detail-photo" src="documentation/superstore-dashboard-HD.png" alt="Global Superstore Sales Dashboard di Power BI">
       </div>
@@ -135,9 +141,9 @@
       <a class="card-link" href="project-superstore.html">View Details →</a>
     </div>
 
-    <div class="project-card">
+    <div class="project-card" data-category="data">
       <div class="detail-block">
-        <img class="detail-photo" src="documentation\revenue_segmen.png" alt="Revenue per segmen hasil RFM clustering">
+        <img class="detail-photo" src="documentation/revenue_segmen.png" alt="Revenue per segmen hasil RFM clustering">
       </div>
       <span class="role-badge">Data Analyst</span>
       <h3>E-Commerce Customer Segmentation: 16% of Customers Drive 65% of Revenue</h3>
@@ -151,15 +157,17 @@
       <a class="card-link" href="project-rfm-segmentation.html">View Details →</a>
     </div>
 
-      <div class="project-card">
-        <div class="detail-hero-image" style="min-height:220px;display:grid;place-items:center;background:linear-gradient(135deg,#083b55,#13a6a1);color:#fff;font-size:3rem;"><i class="fa-solid fa-water" aria-hidden="true"></i></div>
+      <div class="project-card" data-category="web">
+        <div class="detail-block">
+          <img class="detail-photo" src="documentation/Dive-rental.png" alt="Spermonde Dive Rental — layanan menyelam dan laut Spermonde">
+        </div>
         <span class="role-badge">Web Development</span>
         <h3>Spermonde Dive Rental</h3>
         <p>Website untuk memperkenalkan layanan penyewaan perlengkapan dan pengalaman menyelam di kawasan Spermonde. Pengunjung dapat melihat informasi layanan melalui satu halaman web.</p>
         <div class="stack"><span>Website</span> · <span>Web Development</span></div>
         <a class="card-link" href="project-spermonde.html">View Details &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-category="data">
     <div class="detail-block">
       <img class="detail-photo"
           src="documentation/dataFlow-etl1.png"
@@ -231,6 +239,23 @@
     <h2>Certifications &amp; Awards</h2>
 
     <div class="cert-grid">
+      <div class="cert-card">
+        <img src="certificates/BasicSQL_Fakhira.jpg" alt="Basic SQL certificate for Fakhira">
+        <div class="cert-body">
+          <h3>Basic SQL</h3>
+          <div class="cert-org">SQL</div>
+          <div class="cert-date">Issued: November 3, 2026</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <img src="certificates/Microsoft_Excel%20Intermediate_Fakhira.jpg" alt="Microsoft Excel Intermediate certificate for Fakhira">
+        <div class="cert-body">
+          <h3>Microsoft Excel Intermediate</h3>
+          <div class="cert-org">Microsoft Excel</div>
+          <div class="cert-date">Issued: November 1, 2026</div>
+        </div>
+      </div>
 
       <div class="cert-card">
         <img src="certificates/dicoding-ml-google-cloud.png" alt="Sertifikat Belajar Penerapan Machine Learning dengan Google Cloud">
@@ -395,5 +420,23 @@
   revealEls.forEach(el => observer.observe(el));
 </script>
 
+
+<script>
+  const projectFilterButtons = document.querySelectorAll('.project-filter');
+  const projectCards = document.querySelectorAll('.project-card[data-category]');
+  projectFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedFilter = button.dataset.filter;
+      projectFilterButtons.forEach(item => {
+        const active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+      projectCards.forEach(card => {
+        card.hidden = selectedFilter !== 'all' && card.dataset.category !== selectedFilter;
+      });
+    });
+  });
+</script>
 </body>
 </html>
