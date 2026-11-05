@@ -258,7 +258,7 @@ section h2{
 /* ---------- SKILLS ---------- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px 32px;
   max-width: 1000px;
   margin: 0 auto;
